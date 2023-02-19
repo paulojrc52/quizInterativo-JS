@@ -21,7 +21,9 @@ const calculateUserScore = userAnswers => {
   userAnswers.forEach((userAnswer, index) => {
     const isUserAnswerCorrect = userAnswer === correctAnswers[index]
     if(isUserAnswerCorrect) {
-      score += 25
+      if(score < 100) {
+        score += 25
+      }
     }
   })
 } 
@@ -33,17 +35,22 @@ const showFinalScore = () => {
     behavior: 'smooth',
   })
   finalScoreContainer.classList.remove('d-none')
+  setTimeout(() => {
+    location.reload()
+  }, 7000)
 }
 
 const animateFinalScore = () => {
   let counter = 0
   
   const timer = setInterval(() => {
-    if(counter === score) {
-     clearInterval(timer)
+    if(counter === score || counter > score) {
+      clearInterval(timer)
+      return
     }
+    counter++
 
-    finalScoreContainer.querySelector('span').textContent = `${counter++}%`
+    finalScoreContainer.querySelector('span').textContent = `${counter}%`
   }, 10)
 }
 
