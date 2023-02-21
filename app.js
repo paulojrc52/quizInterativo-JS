@@ -26,9 +26,6 @@ const showFinalScore = () => {
     behavior: 'smooth',
   })
   finalScoreContainer.classList.remove('d-none')
-  setTimeout(() => {
-    location.reload()
-  }, 7000)
 }
 
 const animateFinalScore = () => {
@@ -45,11 +42,16 @@ const animateFinalScore = () => {
   }, 10)
 }
 
+const resetScoreUser = () => {
+  score = 0 
+}
+
 const handleSubmitForm = event => {
   event.preventDefault()
 
   const userAnswers = getUserAnswers()
 
+  resetScoreUser()
   calculateUserScore(userAnswers)
   showFinalScore()
   animateFinalScore()
