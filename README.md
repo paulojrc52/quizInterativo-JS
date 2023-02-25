@@ -1,1 +1,1 @@
-#### Você pode acessar:  [<https://paulojrc52.github.io/quizInterativo-JS/>]
+#### Você pode acessar:  [<https://quiz-portugues-portugal.netlify.app/>]
